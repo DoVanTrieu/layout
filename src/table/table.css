@@ -1,0 +1,70 @@
+.table {
+  display: grid;
+  grid-template-rows: 1fr 1fr 2fr 1fr 2fr;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(201, 200, 200);
+  background: rgb(197, 241, 247);
+  box-sizing: border-box;
+  width: 400px;
+  height: 300px;
+  border-radius: 5px;
+  padding: 20px;
+}
+.allTable1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+}
+.teamName {
+  color: rgb(65, 0, 139);
+  text-align: left;
+}
+.allIcon {
+  display: flex;
+  color: violet;
+}
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  height: 45px;
+  width: 45px;
+  background: linear-gradient(
+    90deg,
+    rgba(230, 110, 171, 0.9808298319327731) 20%,
+    rgba(198, 98, 226, 1) 80%
+  );
+  text-align: center;
+  padding: 2px;
+  color: white;
+}
+.icon1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  height: 45px;
+  width: 45px;
+  background: linear-gradient(
+    90deg,
+    rgba(205, 215, 231, 0.981) 20%,
+    rgb(98, 168, 226) 80%
+  );
+  text-align: center;
+  padding: 2px;
+  color: white;
+}
+.circleAvatar {
+  display: flex;
+}
+
+.headerCard{
+  display: flex;
+  justify-content: space-between;
+}
+.iconName{
+  margin:3px;
+  color: violet;
+}

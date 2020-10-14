@@ -1,0 +1,8 @@
+.search{
+    background :rgba(0,0,0,0.0);width : 320px;
+    border:none
+}
+.searchTab{
+display: flex;
+border-radius: 5px;border-color: grey; background :rgba(0,0,0,0.08); width : 320px
+}
