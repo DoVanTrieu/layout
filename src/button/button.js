@@ -6,7 +6,7 @@ export default class button extends Component {
         return (
             <div>
                 <div>
-                    <button onClick={shoot} className="button">CREAT NEW TEAM</button>
+                    <button onClick={shoot} className="button">CREAT NEW TEAM1</button>
                 </div>
             </div>
         )
