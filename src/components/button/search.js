@@ -18,7 +18,7 @@ export default class search extends Component {
     render() {
         return (
             <div>
-                <form className="searchTab" onSubmit={this.handleSubmit}>
+                <form className="searchTab" >
                     <i className="fa fa-search" style={{ margin: 8 }} />
 
                     <input
@@ -27,7 +27,6 @@ export default class search extends Component {
                         value={this.state.valueSearch}
                         onChange={this.handleChange}
                     />
-                    <input type="submit" value="Submit" />
                 </form>
             </div>
         );
