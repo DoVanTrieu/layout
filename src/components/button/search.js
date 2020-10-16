@@ -1,21 +1,18 @@
 import React, { Component } from "react";
 import "./search.css";
 import "font-awesome/css/font-awesome.min.css";
+import { setFilterList } from '../../actions';
+import { connect } from 'react-redux'
 
 
-export default class search extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { valueSearch: "" };
-        this.handleChange = this.handleChange.bind(this);
-    }
-    handleChange = (e) => {
-        this.setState({
-            valueSearch: e.target.value,
-        });
-        this.props.onChange(e.target.value);
-    };
+ class search extends Component {
+   
     render() {
+      const handleChange = (e) => {
+        const { dispatch } = this.props;
+        const valueSearch = e.target.value;
+         dispatch(setFilterList(valueSearch));
+        };  
         return (
             <div>
                 <form className="searchTab" >
@@ -24,12 +21,12 @@ export default class search extends Component {
                     <input
                         type="search"
                         className="search"
-                        value={this.state.valueSearch}
-                        onChange={this.handleChange}
+                        // value={valueSearch}
+                        onChange={handleChange}
                     />
                 </form>
             </div>
         );
     }
 }
-
+export default connect()(search)

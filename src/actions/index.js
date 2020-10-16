@@ -1,8 +1,8 @@
-export const valueSearch  = text => ({
-    type: 'VALUE_NAME',
-    text
+export const addTeam = newTeam => ({
+    type: 'ADD_TEAM',
+    payload: newTeam
 })
-export const data  = id => ({
-    type: 'VALUE_NAME',
-    id
+export const setFilterList = valueSearch => ({
+    type: 'SET_FILTER_LIST',
+    payload: valueSearch
 })

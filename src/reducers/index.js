@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux'
 import data from './data'
-import dataDisplay from './dataDisplay'
+import displayData from './dataDisplay'
+import team from './team.js'
 
 export default combineReducers({
-  data,
-  dataDisplay
+  // data
+  // data,
+  // displayData,
+  team
 })
