@@ -8,10 +8,14 @@ import ManagerIds from './ManagerIds.js'
 export default class Table extends Component {
   render() {
     const { data } = this.props;
+    // console.log('src/components/table/table.js', data)
     return (
       <div className='allTable1'>
-        {data.map(item => (
-          <div className="table" key={data.id}>
+        {data.map((item, index) => {
+          // if (!item) {
+            // console.log('This is', index, item)
+          // }
+          return <div className="table" key={data.id}>
             < TeamName data={item} />
             < MemberIds data={item} />
             < CircleAvatar data={item} />
@@ -19,7 +23,7 @@ export default class Table extends Component {
             < ManagerIds data={item} />
             < CircleAvatar2 data={item} />
           </div>
-        ))}
+        })}
       </div>
     );
   }

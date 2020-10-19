@@ -10,7 +10,7 @@ class App extends React.Component {
 
   render() {
     const { displayFilter } = this.props;
-    // console.log('this.props', this.props)
+    console.log('src/components/App.js displayFilter', displayFilter)
     return (
       <div className="App">
         <header className="App-header">
@@ -21,8 +21,6 @@ class App extends React.Component {
           <div className="allTable">
             <Table data={displayFilter} />
           </div>
-
-
         </header>
       </div>
     );

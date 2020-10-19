@@ -21,7 +21,6 @@ import { connect } from 'react-redux'
                     <input
                         type="search"
                         className="search"
-                        // value={valueSearch}
                         onChange={handleChange}
                     />
                 </form>
