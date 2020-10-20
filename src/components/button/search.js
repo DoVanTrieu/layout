@@ -1,31 +1,35 @@
 import React, { Component } from "react";
 import "./search.css";
 import "font-awesome/css/font-awesome.min.css";
-import { setFilterList } from '../../actions';
-import { connect } from 'react-redux'
 
-
- class search extends Component {
-   
+export default class search extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { valueSearch: "" };
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange = (e) => {
+        this.setState({
+            valueSearch: e.target.value,
+        });
+        this.props.onChange(e.target.value);
+    };
     render() {
-      const handleChange = (e) => {
-        const { dispatch } = this.props;
-        const valueSearch = e.target.value;
-         dispatch(setFilterList(valueSearch));
-        };  
         return (
             <div>
-                <form className="searchTab" >
+                <form className="searchTab" onSubmit={this.handleSubmit}>
                     <i className="fa fa-search" style={{ margin: 8 }} />
 
                     <input
                         type="search"
                         className="search"
-                        onChange={handleChange}
+                        value={this.state.valueSearch}
+                        onChange={this.handleChange}
                     />
+                    <input type="submit" value="Submit" />
                 </form>
             </div>
         );
     }
 }
-export default connect()(search)
+// export default connect()(search)
