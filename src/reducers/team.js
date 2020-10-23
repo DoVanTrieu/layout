@@ -1,8 +1,7 @@
 import mockData from "../components/data/TeamJson";
 
 const initState = {
-  data: mockData,
-  dataFilter: mockData
+  data: mockData
 }
 
 const teams = (state = initState, action) => {
