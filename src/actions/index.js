@@ -7,3 +7,7 @@ export const setFilterList = valueSearch => ({
     type: 'SET_FILTER_LIST',
     payload: valueSearch
 })
+export const setData = data =>({
+    type: 'SET_DATA',
+    payload: data
+})

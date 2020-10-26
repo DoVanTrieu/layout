@@ -6,7 +6,6 @@ class Data extends Component {
     fetch("http://localhost:8003/1/TeamJson.json")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         this.props.setData(data);
       });
   }
