@@ -4,7 +4,6 @@ export default class CircleAvatar extends Component {
 
     render() {
         const { data } = this.props;
-        // console.log('item4', data)
         const newArray2 = data.managerIds.slice(0, 6); // array with 6 elements
 
         return (

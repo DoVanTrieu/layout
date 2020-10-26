@@ -1,9 +1,5 @@
-
-
-
 const initState = {
   data: [],
-  dataFilter: []
 }
 const teams = (state = initState, action) => {
   

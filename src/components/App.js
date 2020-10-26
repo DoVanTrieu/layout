@@ -8,7 +8,7 @@ import Data from './data/DataJson'
 class App extends React.Component {
 
   state = {
-    displayData: this.props.data,
+    displayData: this.props.dataFilter,
     valueSearch: ''
   }
 
@@ -53,7 +53,6 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  data: state.data,
   dataFilter: state.team.data
 })
 export default connect(mapStateToProps)(App);
