@@ -13,7 +13,7 @@ class button extends Component {
                 ...this.state.data,
                newTeam
               ];
-            dispatch(addTeam(cards))
+           this.props.addTeam(cards)
         }
         return (
             <div>
@@ -24,5 +24,11 @@ class button extends Component {
         )
     }
 }
+const mapDispatchToProps = dispatch => {
+    return {
+      addTeam: card => dispatch(addTeam(card))
+    }
+  }
 
-export default connect()(button) // muon day vao store
+
+export default connect(null,mapDispatchToProps)(button) // muon day vao store
