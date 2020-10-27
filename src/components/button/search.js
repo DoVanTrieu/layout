@@ -32,4 +32,4 @@ export default class search extends Component {
         );
     }
 }
-// export default connect()(search)
+

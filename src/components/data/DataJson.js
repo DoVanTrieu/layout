@@ -5,8 +5,8 @@ class Data extends Component {
   componentDidMount() {
     fetch("http://localhost:8003/1/TeamJson.json")
       .then((response) => response.json())
-      .then((data) => {
-        this.props.setData(data);
+      .then((data) => { setTimeout(() => 
+        {this.props.setData(data);},3000)
       });
   }
   render() {

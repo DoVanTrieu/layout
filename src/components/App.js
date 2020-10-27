@@ -5,6 +5,7 @@ import Search from './button/search.js'
 import Table from './table/table.js'
 import { connect } from 'react-redux'
 import Data from './data/DataJson'
+import CircularProgress from '@material-ui/core/CircularProgress';
 class App extends React.Component {
 
   state = {
@@ -35,6 +36,7 @@ class App extends React.Component {
 
   render() {
     const { displayData } = this.state;
+    const { loading } = this.props;
     return (
       <div className="App">
         <header className="App-header">
@@ -45,6 +47,13 @@ class App extends React.Component {
           <div className="allTable">
             <Table data={displayData} />
             <Data />
+            {loading === false ? (
+              <Data />
+            ) : (
+                <h2>Loading . . . 
+                  <CircularProgress />
+                </h2>
+              )}
           </div>
         </header>
       </div>
@@ -53,7 +62,8 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  dataFilter: state.team.data
+  dataFilter: state.team.data,
+  loading: state.team.isLoading
 })
 export default connect(mapStateToProps)(App);
 

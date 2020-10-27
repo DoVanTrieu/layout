@@ -1,14 +1,18 @@
 const initState = {
   data: [],
+  isLoading: true
 }
 const teams = (state = initState, action) => {
-  
+
   switch (action.type) {
     case 'SET_DATA':
-      { console.log('action.payload',action.payload)
+      {
+        console.log('action.payload', action.payload)
         return {
-        data: action.payload
-      }}
+          data: action.payload,
+          isLoading: false
+        }
+      }
     case 'ADD_TEAM':
       return {
         data: action.payload
@@ -16,6 +20,6 @@ const teams = (state = initState, action) => {
     default:
       return state
   }
-  
+
 }
-  export default teams;
+export default teams;
