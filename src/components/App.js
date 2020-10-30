@@ -18,15 +18,28 @@ class App extends React.Component {
       return team.name.toLowerCase().indexOf(
         prevState.valueSearch.toLowerCase()) !== -1
     });
+    const updateLists2 = nextProps.addData.filter(team => {
+      return team.name.toLowerCase().indexOf(
+        prevState.valueSearch.toLowerCase()) !== -1
+    });
+    // console.log('nextProps', nextProps)
+   if (nextProps.addData !== prevState.displayData && nextProps.addData.length > 0){
+      return { displayData: updateLists2 };
+    }
     if (nextProps.dataFilter !== prevState.displayData) {
       return { displayData: updateLists };
     }
-    else return null;
+   return null;
   }
-
+  addTeam = (addData) => {
+    this.setState({ displayData: addData});
+  }
   filterList = (valueSearch) => {
     const { dataFilter } = this.props;
-    const updatLists = dataFilter.filter(team => {
+    const { displayData } = this.state;
+    console.log('displayData',displayData)
+    console.log('dataFilter',dataFilter)
+    const updatLists = displayData.filter(team => {
       return team.name.toLowerCase().indexOf(
         valueSearch.toLowerCase()) !== -1
     });
@@ -63,7 +76,9 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => ({
   dataFilter: state.team.data,
-  loading: state.team.isLoading
+  loading: state.team.isLoading,
+  addData: state.addTeam.data
 })
+
 export default connect(mapStateToProps)(App);
 

@@ -1,6 +1,8 @@
+
 const initState = {
   data: [],
-  isLoading: true
+  isLoading: true,
+  error: null
 }
 const teams = (state = initState, action) => {
 
@@ -13,10 +15,10 @@ const teams = (state = initState, action) => {
           isLoading: false
         }
       }
-    case 'ADD_TEAM':
-      return {
-        data: action.payload
-      }
+    // case 'ADD_TEAM':
+    //   return {
+    //     data: action.payload
+    //   }
     default:
       return state
   }
