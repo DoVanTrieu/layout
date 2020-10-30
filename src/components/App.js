@@ -9,15 +9,17 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 class App extends React.Component {
 
   state = {
-    displayData: this.props.dataFilter,
-    valueSearch: ''
+    displayData: this.props.addData,
+    valueSearch: '',
+    cards:[]
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    const updateLists = nextProps.dataFilter.filter(team => {
-      return team.name.toLowerCase().indexOf(
-        prevState.valueSearch.toLowerCase()) !== -1
-    });
+    // const updateLists = nextProps.dataFilter.filter(team => {
+    //   return team.name.toLowerCase().indexOf(
+    //     prevState.valueSearch.toLowerCase()) !== -1
+    // });
+    console.log('prevState.cards', prevState.cards)
     const updateLists2 = nextProps.addData.filter(team => {
       return team.name.toLowerCase().indexOf(
         prevState.valueSearch.toLowerCase()) !== -1
@@ -26,19 +28,24 @@ class App extends React.Component {
    if (nextProps.addData !== prevState.displayData && nextProps.addData.length > 0){
       return { displayData: updateLists2 };
     }
-    if (nextProps.dataFilter !== prevState.displayData) {
-      return { displayData: updateLists };
-    }
+    // if (nextProps.dataFilter !== prevState.displayData) {
+    //   return { displayData: updateLists };
+    // }
    return null;
   }
-  addTeam = (addData) => {
-    this.setState({ displayData: addData});
+  addTeam = (cards) => {
+    console.log ('cards',cards);
+    const updateLists = cards.filter(team => {
+      return team.name.toLowerCase().indexOf(
+        this.state.valueSearch.toLowerCase()) !== -1
+    });
+    this.setState({ displayData: updateLists});
   }
   filterList = (valueSearch) => {
-    const { dataFilter } = this.props;
+    const { addData } = this.props;
     const { displayData } = this.state;
     console.log('displayData',displayData)
-    console.log('dataFilter',dataFilter)
+    console.log('addData',addData)
     const updatLists = displayData.filter(team => {
       return team.name.toLowerCase().indexOf(
         valueSearch.toLowerCase()) !== -1
@@ -54,19 +61,19 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <div className="app1">
-            <Button />
+            <Button onClick={ this.addTeam }/>
             <Search onChange={this.filterList} />
           </div>
           <div className="allTable">
             <Table data={displayData} />
             <Data />
-            {loading === false ? (
+            {/* {loading === false ? (
               <Data />
             ) : (
                 <h2>Loading . . . 
                   <CircularProgress />
                 </h2>
-              )}
+              )} */}
           </div>
         </header>
       </div>
@@ -75,8 +82,8 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  dataFilter: state.team.data,
-  loading: state.team.isLoading,
+  // dataFilter: state.team.data,
+  // loading: state.team.isLoading,
   addData: state.addTeam.data
 })
 
