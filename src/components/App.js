@@ -11,42 +11,38 @@ class App extends React.Component {
   state = {
     displayData: this.props.addData,
     valueSearch: '',
-    cards:[]
-  }
+    cards: []
+  } 
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    // const updateLists = nextProps.dataFilter.filter(team => {
-    //   return team.name.toLowerCase().indexOf(
-    //     prevState.valueSearch.toLowerCase()) !== -1
-    // });
-    console.log('prevState.cards', prevState.cards)
+  
     const updateLists2 = nextProps.addData.filter(team => {
       return team.name.toLowerCase().indexOf(
         prevState.valueSearch.toLowerCase()) !== -1
     });
-    // console.log('nextProps', nextProps)
-   if (nextProps.addData !== prevState.displayData && nextProps.addData.length > 0){
+    console.log('prevState.displayData',prevState.displayData)
+    
+    if (nextProps.addData !== prevState.displayData && prevState.displayData.length === 0  ) {
+      console.log('updateLists2updateLists2', updateLists2);
       return { displayData: updateLists2 };
     }
-    // if (nextProps.dataFilter !== prevState.displayData) {
-    //   return { displayData: updateLists };
-    // }
-   return null;
+    
+    
+
+    return null;
   }
   addTeam = (cards) => {
-    console.log ('cards',cards);
-    const updateLists = cards.filter(team => {
+    console.log('cards', cards);
+    const updateLists3 = cards.filter(team => {
       return team.name.toLowerCase().indexOf(
         this.state.valueSearch.toLowerCase()) !== -1
     });
-    this.setState({ displayData: updateLists});
+    console.log('updateLists3', updateLists3);
+    this.setState({displayData:updateLists3,cards });
   }
   filterList = (valueSearch) => {
     const { addData } = this.props;
-    const { displayData } = this.state;
-    console.log('displayData',displayData)
-    console.log('addData',addData)
-    const updatLists = displayData.filter(team => {
+    const updatLists = addData.filter(team => {
       return team.name.toLowerCase().indexOf(
         valueSearch.toLowerCase()) !== -1
     });
@@ -56,12 +52,13 @@ class App extends React.Component {
 
   render() {
     const { displayData } = this.state;
+    console.log('displayData render', displayData)
     const { loading } = this.props;
     return (
       <div className="App">
         <header className="App-header">
           <div className="app1">
-            <Button onClick={ this.addTeam }/>
+            <Button onClick={this.addTeam} />
             <Search onChange={this.filterList} />
           </div>
           <div className="allTable">
@@ -83,7 +80,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => ({
   // dataFilter: state.team.data,
-  // loading: state.team.isLoading,
+  // loading: state.addTeam.isLoading,
   addData: state.addTeam.data
 })
 
